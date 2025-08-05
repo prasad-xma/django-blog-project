@@ -1,13 +1,20 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
+
 # Django #
+*.py[cod]
+__pycache__/
+*.sqlite3
 *.log
 *.pot
 *.pyc
-__pycache__
 db.sqlite3
-media
+.env
+.env.*
+instance/
+local_settings.py
+
 
 # Backup files # 
 *.bak 
