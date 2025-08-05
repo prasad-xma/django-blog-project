@@ -12,13 +12,6 @@ media
 # Backup files # 
 *.bak 
 
-# If you are using PyCharm # 
-# User-specific stuff
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/**/usage.statistics.xml
-.idea/**/dictionaries
-.idea/**/shelf
 
 # AWS User-specific
 .idea/**/aws.xml
@@ -114,13 +107,6 @@ venv.bak/
 
 # mypy 
 .mypy_cache/ 
-
-# Sublime Text # 
-*.tmlanguage.cache 
-*.tmPreferences.cache 
-*.stTheme.cache 
-*.sublime-workspace 
-*.sublime-project 
 
 # sftp configuration file 
 sftp-config.json 
