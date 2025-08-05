@@ -45,7 +45,10 @@ def login_view(request):
                 login(request, user)
                 # redirect by role
                 if user.role == 'admin':
-                    return redirect('admin_dashboard')
+                    if user.is_superuser:
+                        return redirect('/admin/')
+                    else:
+                        return redirect('admin_dashboard')
                 else:
                     return redirect('home')
             else:
