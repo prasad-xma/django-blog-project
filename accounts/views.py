@@ -9,7 +9,7 @@ from .forms import CustomUserCreationForm, LoginForm
 def home(request):
     return render(request, 'home.html')
 
-@roles_required('admin')
+@roles_required('admin', 'superuser')
 def admin_dashboard(request):
     return render(request, 'admin_dashboard.html')
 
@@ -44,7 +44,9 @@ def login_view(request):
             if user:
                 login(request, user)
                 # redirect by role
-                if user.role == 'admin':
+                if user.is_superuser:
+                    return redirect('/admin/')
+                elif user.role == 'admin':
                     if user.is_superuser:
                         return redirect('/admin/')
                     else:
