@@ -1,0 +1,18 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/admin_custom.css' %}">
+{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">My Site Admin</a></h1>
+{% endblock %}
+
+{% block nav-global %}
+<div class="custom-navbar">
+  <a href="/">Home</a>
+  <a href="/profile/">Profile</a>
+</div>
+{% endblock %}
