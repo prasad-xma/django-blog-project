@@ -1,2 +1,9 @@
-<h1>Welcome, {{ user.username }}</h1>
-<p>Your role: {{ user.role }}</p>
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>Welcome, {{ user.username }}</h1>
+    <p>Your role: {{ user.role }}</p>
+{% endblock content %}
+
