@@ -10,11 +10,29 @@
 <body>
     <!-- nav bar -->
     <div class="navbar">
-        <ul>
-            <li><a href="{% url "home" %}">Home</a></li>
-            <li><a href="">Blog</a></li>
-            <li><a href="">My Profile</a></li>
-            <li><a href="">Login</a></li>
+        <ul class="menu">
+            <li class="item"><a class="active" href="{% url "home" %}">Home</a></li>
+            <li class="item"><a href="/">Blog</a></li>
+            
+            {% if user.is_authenticated %}
+                <li class="item"><a href="/">Profile</a></li>
+
+                {% if user.is_superuser %}
+                    <li class="item"><a href="/admin/">Dashboard</a></li>
+                {% endif %}
+                {% if user.role == 'admin' %}
+                    <li class="item"><a href="{% url "admin_dashboard" %}">Dashboard</a></li>
+                {% endif %}
+
+                <li class="item">
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button class="btn_logout" type="submit">Log Out</button>
+                    </form>
+                </li>
+            {% else %}
+                <li class="item"><a href="{% url "login" %}">Login</a></li>
+            {% endif %}
         </ul>
     </div>
 

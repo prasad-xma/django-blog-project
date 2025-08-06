@@ -3,6 +3,7 @@ from .decorators import roles_required
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout, authenticate
 from .forms import CustomUserCreationForm, LoginForm
+from django.http import HttpResponseForbidden
 
 # Create your views here.
 
@@ -58,10 +59,20 @@ def login_view(request):
     else:
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
-    
 
+
+# profile_view
+@login_required
+def profile_view(request, username):
+    if request.user.username != username:
+        return HttpResponseForbidden("You are not authorized to view this page!")
+    return render(request, 'profile.html', {'user': request.user})
+    
+        
+        
 # logout view
 @login_required
 def logout_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('home')
+

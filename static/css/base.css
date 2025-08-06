@@ -7,6 +7,7 @@
 body {
     height: 100vh;
     width: 100%;
+    /* background-color: #666; */
 }
 
 /* ||navbar */
@@ -42,5 +43,24 @@ body {
     background-color: #04AA6D;
     color: #fff;
 }
+
+.btn_logout {
+    border: none;
+    background: none;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    padding: 1rem 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    background-color: red;
+}
+.btn_logout:hover {
+    background-color: rgb(229, 65, 65);
+}
+.btn_logout:focus {
+    outline: none;
+}
+
+
 
 /* ||end navbar */
