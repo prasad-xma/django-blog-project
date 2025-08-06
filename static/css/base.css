@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+}
+
+/* ||navbar */
+.navbar {
+  display: block;
+  margin: 0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.menu {
+    display: flex;
+    list-style-type: none;
+    background-color: #f3f3f3;
+}
+
+
+.item a{
+    text-decoration: none;
+    color: #666;
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    font-weight: bold;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.item a:hover:not(.active) {
+    background-color: #e1dddd;
+}
+
+.item a.active {
+    background-color: #04AA6D;
+    color: #fff;
+}
+
+/* ||end navbar */
