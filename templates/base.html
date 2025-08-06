@@ -15,7 +15,8 @@
             <li class="item"><a href="/">Blog</a></li>
             
             {% if user.is_authenticated %}
-                <li class="item"><a href="/">Profile</a></li>
+                <li class="item"><a href="{% url "profile" user.username %}">Profile</a></li>
+                
 
                 {% if user.is_superuser %}
                     <li class="item"><a href="/admin/">Dashboard</a></li>
