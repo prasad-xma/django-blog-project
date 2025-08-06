@@ -4,7 +4,7 @@
 
 {% block content %}
 
-    {% comment %} {% user.username %} {% endcomment %}
-    {% comment %} {% user.role %} {% endcomment %}
+    {% request.user.username %}
+    {% request.user.role %}
 
 {% endblock content %}
