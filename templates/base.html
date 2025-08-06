@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Blog App{% endblock  %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <!-- nav bar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="">My Profile</a></li>
+            <li><a href="">Login</a></li>
+        </ul>
+    </div>
+
+    <!-- main -->
+    <div class="main_container">
+        {% block content %}
+        {% endblock  %}
+    </div>
+    
+    <!-- footer -->
+    <div class="footer_container">
+
+    </div>
+</body>
+</html>
