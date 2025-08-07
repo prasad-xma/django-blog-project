@@ -4,48 +4,46 @@
 {% block title %}Profile{% endblock %}
 
 {% block content %}
-
-    <div class="profile_main">
-        <div class="profile_upper_sec"></div>
-        <div class="profile_lower_sec">
-            <div class="profile_details_sec">
-
-                <div class="profile_img_sec">
-                    <div class="profile_img">
-                        <img width="120px" height="120px" src="{% static "images/avatar.jpg" %}">
-                    </div>
-                    <div class="profile_img_name">
-                        <p>{{ request.user.first_name }} {{ request.user.last_name }}</p>
-                    </div>
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white text-center">
+            <h4>Profile</h4>
+        </div>
+        <div class="card-body">
+            <div class="row align-items-center">
+                <!-- Profile image and name -->
+                <div class="col-md-4 text-center mb-3">
+                    <img src="{% static 'images/avatar.jpg' %}" class="rounded-circle mb-2" width="120" height="120" alt="Profile Image">
+                    <h5 class="mb-0">{{ request.user.first_name }} {{ request.user.last_name }}</h5>
                 </div>
 
-                <!-- user details section -->
-                <div class="userdetails_sec">
-                    <table class="profile_table">
-                        <tr>
-                            <td>Email</td>
-                            <td>{{ request.user.email }}</td>
-                        </tr>
-                        <tr>
-                            <td>Username</td>
-                            <td>{{ request.user.username }}</td>
-                        </tr>
-                        <tr>
-                            <td>Role</td>
-                            <td>{{ request.user.role }}</td>
-                        </tr>
+                <!-- Profile details -->
+                <div class="col-md-8">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Email</th>
+                                <td>{{ request.user.email }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Username</th>
+                                <td>{{ request.user.username }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Role</th>
+                                <td>{{ request.user.role }}</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
+            </div>
 
-                <!-- edit and rest btn -->
-                <div class="profile_btn_section">
-                    <button>Rest Password</button>
-                    <a href="{% url "edit_profile" request.user.username %}">Edit Profile</a>
-                </div>
-
+            <!-- Buttons -->
+            <div class="text-end mt-4">
+                <a href="#" class="btn btn-warning me-2">Reset Password</a>
+                <a href="{% url 'edit_profile' request.user.username %}" class="btn btn-primary">Edit Profile</a>
             </div>
         </div>
     </div>
-
-
+</div>
 {% endblock %}
