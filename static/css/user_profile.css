@@ -1,0 +1,86 @@
+.profile_main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.profile_upper_sec {
+    width: 100%;
+    height: 40%;
+    background-color: #04AA6D;
+    position: relative;
+}
+
+.profile_lower_sec {
+    background-color: #ffffff;
+    border-radius: 10px;
+    position: absolute;
+    width: 800px;
+    height: 500px;
+    bottom: 58px;
+    right: 380px;
+    /* box-shadow: 8px 8px 5px rgba(226, 229, 229, 0.967); */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profile_details_sec {
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+}
+
+.profile_img img {
+    width: 120px;
+    height: 120px;
+}
+
+.profile_img_sec {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile_img_name p {
+    font-weight: bold;
+    font-size: x-large;
+    margin-left: 1rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.userdetails_sec {
+    margin: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile_table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1rem;
+    color: #333;
+}
+
+.profile_table th,
+.profile_table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.profile_table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+}
+
+.profile_table tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* profile btn section */
+.profile_btn_section {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+}

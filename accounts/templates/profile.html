@@ -1,11 +1,51 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block title %}Profile{% endblock title %}
+{% block title %}Profile{% endblock %}
 
 {% block content %}
 
-    {{ request.user.username }}
-    {{ request.user.role }}
+    <div class="profile_main">
+        <div class="profile_upper_sec"></div>
+        <div class="profile_lower_sec">
+            <div class="profile_details_sec">
+
+                <div class="profile_img_sec">
+                    <div class="profile_img">
+                        <img width="120px" height="120px" src="{% static "images/avatar.jpg" %}">
+                    </div>
+                    <div class="profile_img_name">
+                        <p>{{ request.user.first_name }} {{ request.user.last_name }}</p>
+                    </div>
+                </div>
+
+                <!-- user details section -->
+                <div class="userdetails_sec">
+                    <table class="profile_table">
+                        <tr>
+                            <td>Email</td>
+                            <td>{{ request.user.email }}</td>
+                        </tr>
+                        <tr>
+                            <td>Username</td>
+                            <td>{{ request.user.username }}</td>
+                        </tr>
+                        <tr>
+                            <td>Role</td>
+                            <td>{{ request.user.role }}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- edit and rest btn -->
+                <div class="profile_btn_section">
+                    <button>Rest Password</button>
+                    <button>Edit</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
-{% endblock content %}
+{% endblock %}
