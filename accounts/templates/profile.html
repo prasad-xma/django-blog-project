@@ -4,7 +4,8 @@
 
 {% block content %}
 
-    {% request.user.username %}
-    {% request.user.role %}
+    {{ request.user.username }}
+    {{ request.user.role }}
+
 
 {% endblock content %}
