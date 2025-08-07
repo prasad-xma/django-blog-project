@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from .decorators import roles_required
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout, authenticate
-from .forms import CustomUserCreationForm, LoginForm
+from .forms import CustomUserCreationForm, LoginForm, EditProfileForm
 from django.http import HttpResponseForbidden
+from django.contrib import messages
 
 # Create your views here.
 
@@ -68,7 +69,7 @@ def profile_view(request, username):
         return HttpResponseForbidden("You are not authorized to view this page!")
     return render(request, 'profile.html', {'user': request.user})
     
-        
+          
         
 # logout view
 @login_required
@@ -76,3 +77,23 @@ def logout_view(request):
     logout(request)
     return redirect('home')
 
+
+# profile edit view
+@login_required
+def profile_edit_view(request, username):
+    if request.user.username != username:
+        return HttpResponseForbidden("You are not authorized to view this page!")
+    
+    user = request.user
+    
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Profile updated successfully!")
+            return redirect('profile_view', username=user.username)
+    else:
+        form = EditProfileForm(instance=user)
+    
+    return render(request, 'edit_profile.html', {'form': form})
+    
