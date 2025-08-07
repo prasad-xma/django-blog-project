@@ -40,7 +40,7 @@
                 <!-- edit and rest btn -->
                 <div class="profile_btn_section">
                     <button>Rest Password</button>
-                    <button>Edit</button>
+                    <a href="{% url "edit_profile" request.user.username %}">Edit Profile</a>
                 </div>
 
             </div>
