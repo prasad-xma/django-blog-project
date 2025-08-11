@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden
 from django.contrib import messages
 from .models import Blog
+from .forms import BlogForm
 
 
 # Create your views here.
