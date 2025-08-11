@@ -36,4 +36,4 @@ def blog_create(request):
             return redirect('blog_detail.html', pk=blog.pk)
     else:
         form = BlogForm()
-    return render(request, 'blogs/blog_form.html')
+    return render(request, 'blogs/blog_form.html', {'form': form})
