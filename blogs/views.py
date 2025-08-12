@@ -17,6 +17,7 @@ def blog_list(request):
     return render(request, 'blogs/blog_list.html', {'blogs': blogs})
 
 # get user's blog
+@login_required
 def my_blog(request):
     blogs = Blog.objects.filter(owner=request.user)
     return render(request, 'blogs/my_blog.html', {'blogs': blogs})
