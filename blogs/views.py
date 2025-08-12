@@ -33,7 +33,7 @@ def blog_create(request):
             blog = form.save(commit=False)
             blog.owner = request.user
             blog.save()
-            return redirect('blog_detail', pk=blog.pk)
+            return redirect('blog_list')
     else:
         form = BlogForm()
     return render(request, 'blogs/blog_form.html', {'form': form})
