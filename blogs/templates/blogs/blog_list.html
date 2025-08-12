@@ -13,9 +13,10 @@
 <div class="row">
     {% for blog in blogs %}
         <div class="col-md-4 mb-4">
-            <div class="card h-100">
+            <div class="card h-80">
                 {% if blog.image %}
-                    <img src="{{ blog.image.url }}" class="card-img-top" alt="{{ blog.title }}">
+                    {% comment %} <img src="{{ blog.image.url }}" class="card-img-top" alt="{{ blog.title }}"> {% endcomment %}
+                    <img src="{{ blog.image.url }}" class="card-img-top img-fluid" alt="{{ blog.title }}" style="height: 200px; object-fit: cover;">
                 {% else %}
                     <img src="{% static 'default.jpg' %}" class="card-img-top" alt="Default image">
                 {% endif %}
