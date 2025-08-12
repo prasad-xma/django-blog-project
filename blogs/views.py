@@ -33,7 +33,7 @@ def blog_create(request):
             blog = form.save(commit=False)
             blog.owner = request.user
             blog.save()
-            return redirect('blog_list')
+            return redirect('home')
     else:
         form = BlogForm()
     return render(request, 'blogs/blog_create.html', {'form': form})
@@ -63,4 +63,4 @@ def blog_delete(request, pk):
         return HttpResponseForbidden("You are not allowed to delete this blog...")
     blog.delete()
     
-    return redirect('blog_list')
+    return redirect('home')
