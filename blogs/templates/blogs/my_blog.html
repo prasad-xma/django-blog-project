@@ -1,13 +1,11 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
 
-{% block title %}All Blogs{% endblock %}
+{% block title %}My Blogs{% endblock title %}
 
 {% block content %}
-<h1 class="mb-4">Latest Blogs</h1>
-
-{% if user.is_authenticated %}
-    <a href="{% url 'blog_create' %}" class="btn btn-primary mb-3">+ Create New Blog</a>
+    {% if user.is_authenticated %}
+    <a href="{% url 'blog_create' %}" class="btn btn-primary mb-3">Create New Blog</a>
 {% endif %}
 
 <div class="row">
@@ -15,6 +13,7 @@
         <div class="col-md-4 mb-4">
             <div class="card h-80">
                 {% if blog.image %}
+                    {% comment %} <img src="{{ blog.image.url }}" class="card-img-top" alt="{{ blog.title }}"> {% endcomment %}
                     <img src="{{ blog.image.url }}" class="card-img-top img-fluid" alt="{{ blog.title }}" style="height: 200px; object-fit: cover;">
                 {% else %}
                     <img src="{% static 'default.jpg' %}" class="card-img-top" alt="Default image">
@@ -33,4 +32,4 @@
         <p>No blogs yet.</p>
     {% endfor %}
 </div>
-{% endblock %}
+{% endblock content %}
