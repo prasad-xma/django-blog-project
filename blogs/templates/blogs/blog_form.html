@@ -10,7 +10,7 @@
         {% csrf_token %}
         {{form.as.p}}
         <button type="submit" class="btn btn-success">Save</button>
-        <a href="{% url "blog_list" %}" class="btn btn-secondary">Cancel</a>
+        <a href="{% url "home" %}" class="btn btn-secondary">Cancel</a>
     </form>
 
 {% endblock content %}
