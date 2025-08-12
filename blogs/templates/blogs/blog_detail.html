@@ -6,7 +6,7 @@
 {% block content %}
     <div class="card mb-4">
         {% if blog.image %}
-            <img src="{{ blog.image.url }}" class="card-img-top" alt="{{ blog.title }}">
+            <img src="{{ blog.image.url }}" class="img-thumbnail" style="height: 600px; width: 1000px; object-fit: cover;" alt="{{ blog.title }}">
         {% endif %}
         <div class="card-body">
             <h2 class="card-title">{{ blog.title }}</h2>
@@ -25,5 +25,4 @@
             {% endif %}
         </div>
     </div>
-    <a href="{% url 'home' %}" class="btn btn-secondary">Back to Blogs</a>
 {% endblock content %}
