@@ -4,7 +4,7 @@ from django.http import HttpResponseForbidden
 from django.contrib import messages
 from .models import Blog
 from .forms import BlogForm
-
+from django.db.models import Q
 
 # Create your views here.
 
@@ -13,8 +13,13 @@ def home(request):
 
 # get blogs
 def blog_list(request):
+    query = request.GET.get('q')
     blogs = Blog.objects.filter(status='public')
-    return render(request, 'blogs/blog_list.html', {'blogs': blogs})
+    
+    if query:
+        blogs = blogs.filter(Q(tags__icontains=query))
+        
+    return render(request, 'blogs/blog_list.html', {'blogs': blogs, 'query': query})
 
 # get user's blog
 @login_required
