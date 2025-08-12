@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} {% if form.instance.pk %}Edit Blog{% else %}Create Blog{% endif %} {% endblock title %}
+
+{% block content %}
+    <h2>{% if form.instance.pk %}Edit Blog {% else %}Create Blog{% endif %}</h2>
+
+    <form method="post" enctype="multipart/form-data" class="mt-3">
+        {% csrf_token %}
+        {{form.as.p}}
+        <button type="submit" class="btn btn-success">Save</button>
+        <a href="{% url "home" %}" class="btn btn-secondary">Cancel</a>
+    </form>
+
+{% endblock content %}

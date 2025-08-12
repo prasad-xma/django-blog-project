@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ blog.title }}{% endblock title %}
+
+{% block content %}
+    <div class="card mb-4">
+        {% if blog.image %}
+            <img src="{{ blog.image.url }}" class="card-img-top" alt="{{ blog.title }}">
+        {% endif %}
+        <div class="card-body">
+            <h2 class="card-title">{{ blog.title }}</h2>
+            <p class="text-muted">
+                By {{ blog.owner_name }} | {{ blog.created_at|date:"M d, Y" }}
+            </p>
+            <p>{{ blog.content|linebreaks }}</p>
+            {% if blog.tags %}
+                <p><strong>Tags:</strong> {{ blog.tags }}</p>
+            {% endif %}
+
+            {% if user == blog.owner %}
+                <a href="{% url 'blog_edit' blog.pk %}" class="btn btn-warning">Edit</a>
+                <a href="{% url 'blog_delete' blog.pk %}" class="btn btn-danger"
+                onclick="return confirm('Are you sure you want to delete this blog?')">Delete</a>
+            {% endif %}
+        </div>
+    </div>
+    <a href="{% url 'blog_list' %}" class="btn btn-secondary">Back to Blogs</a>
+{% endblock content %}

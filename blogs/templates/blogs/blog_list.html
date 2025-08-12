@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}All Blogs{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Latest Blogs</h1>
+
+{% if user.is_authenticated %}
+    <a href="{% url 'blog_create' %}" class="btn btn-primary mb-3">+ Create New Blog</a>
+{% endif %}
+
+<div class="row">
+    {% for blog in blogs %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                {% if blog.image %}
+                    <img src="{{ blog.image.url }}" class="card-img-top" alt="{{ blog.title }}">
+                {% else %}
+                    <img src="{% static 'default.jpg' %}" class="card-img-top" alt="Default image">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ blog.title }}</h5>
+                    <p class="card-text">{{ blog.content|truncatewords:20 }}</p>
+                    <a href="{% url 'blog_detail' blog.pk %}" class="btn btn-sm btn-outline-primary">Read More</a>
+                </div>
+                <div class="card-footer text-muted">
+                    By {{ blog.owner_name }} on {{ blog.created_at|date:"M d, Y" }}
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p>No blogs yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}
