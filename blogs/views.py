@@ -36,7 +36,7 @@ def blog_create(request):
             return redirect('blog_list')
     else:
         form = BlogForm()
-    return render(request, 'blogs/blog_form.html', {'form': form})
+    return render(request, 'blogs/blog_create.html', {'form': form})
 
 # edit blog
 @login_required
@@ -52,7 +52,7 @@ def blog_edit(request, pk):
             return redirect('blog_detail', pk=blog.pk)
     else:
         form = BlogForm(instance=blog)
-    return render(request, 'blogs/blog_form.html', {'form': form})
+    return render(request, 'blogs/blog_edit.html', {'form': form})
 
 # delete blog
 @login_required
