@@ -6,9 +6,9 @@
 {% block content %}
 <h1 class="mb-4">Latest Blogs</h1>
 
-{% if user.is_authenticated %}
+{% comment %} {% if user.is_authenticated %}
     <a href="{% url 'blog_create' %}" class="btn btn-primary mb-3">+ Create New Blog</a>
-{% endif %}
+{% endif %} {% endcomment %}
 
 <div class="row">
     {% for blog in blogs %}
