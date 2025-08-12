@@ -13,58 +13,6 @@
 </head>
 <body>
     <!-- Navbar -->
-    {% comment %} <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}">Blog App</a>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Blog</a>
-                    </li>
-
-                    {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'profile' user.username %}">Profile</a>
-                        </li>
-
-                        {% if user.is_superuser %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="/admin/">Dashboard</a>
-                            </li>
-                        {% endif %}
-                        {% if user.role == 'admin' %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'admin_dashboard' %}">Dashboard</a>
-                            </li>
-                        {% endif %}
-
-                        <li class="nav-item">
-                            <form action="{% url 'logout' %}" method="post" class="d-inline">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-outline-light btn-sm ms-2">Log Out</button>
-                            </form>
-                        </li>
-                    {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login' %}">Login</a>
-                        </li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </nav> {% endcomment %}
-
     <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url "home" %}">Blogs</a>
