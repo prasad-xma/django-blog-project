@@ -3,7 +3,7 @@
 {% block title %}Login Page{% endblock title %}
 
 {% block content %}
-<section style="margine-top: 10rem;">
+<section class="mt-5 h-100">
     <div class="container-fluid h-custom">
         <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-md-9 col-lg-6 col-xl-5">
@@ -36,7 +36,7 @@
             <div class="text-center text-lg-start mt-4 pt-2">
                 <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"
                 style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-                <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
+                <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="{% url "register" %}"
                     class="link-danger">Register</a></p>
             </div>
 
@@ -47,12 +47,3 @@
   
 </section>
 {% endblock content %}
-
-
-<h2>Login</h2>
-    <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-    </form>
-    <a href="{% url 'register' %}">Don't have an account? Register</a>
