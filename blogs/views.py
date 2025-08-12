@@ -16,6 +16,10 @@ def blog_list(request):
     blogs = Blog.objects.filter(status='public')
     return render(request, 'blogs/blog_list.html', {'blogs': blogs})
 
+# get user's blog
+def my_blog(request):
+    blogs = Blog.objects.filter(owner=request.user)
+    return render(request, 'blogs/my_blog.html', {'blogs': blogs})
 
 # blog detail
 def blog_detail(request, pk):
