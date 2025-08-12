@@ -1,15 +1,16 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Blogs{% endblock title %}
+{% block title %}All Blogs{% endblock %}
 
 {% block content %}
-    <h1 class="mb-4">Latest Blogs</h1>
+<h1 class="mb-4">Latest Blogs</h1>
 
-    {% if user.is_authenticated %}
-        <a href="{% url "blog_create" %}" class="btn btn-success">Create Blog</a>
-    {% endif %}
+{% if user.is_authenticated %}
+    <a href="{% url 'blog_create' %}" class="btn btn-primary mb-3">+ Create New Blog</a>
+{% endif %}
 
-    <div class="row">
+<div class="row">
     {% for blog in blogs %}
         <div class="col-md-4 mb-4">
             <div class="card h-100">
@@ -28,8 +29,8 @@
                 </div>
             </div>
         </div>
-        {% empty %}
-            <p>No blogs yet.</p>
-        {% endfor %}
-    </div>
-{% endblock content %}
+    {% empty %}
+        <p>No blogs yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}

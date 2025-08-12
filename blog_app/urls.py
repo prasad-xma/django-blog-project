@@ -4,9 +4,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('', include('blogs.urls')),
     path('admin/', admin.site.urls),
     path('account/', include('accounts.urls')),
-    path('', include('blogs.urls')),
 ]
 
 if settings.DEBUG:
