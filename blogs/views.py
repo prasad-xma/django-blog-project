@@ -24,7 +24,7 @@ def blog_detail(request, pk):
         return HttpResponseForbidden("This blog is private.")
     return render(request, 'blogs/blog_detail.html', {'blog': blog})
 
-
+# create blog
 @login_required
 def blog_create(request):
     if request.method == 'POST':
@@ -37,3 +37,30 @@ def blog_create(request):
     else:
         form = BlogForm()
     return render(request, 'blogs/blog_form.html', {'form': form})
+
+# edit blog
+@login_required
+def blog_edit(request, pk):
+    blog = get_object_or_404(Blog, pk=pk)
+    if blog.owner != request.user:
+        return HttpResponseForbidden("You are not allowerd to edit this blog.")
+    
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES, instance=blog)
+        if form.is_valid():
+            form.save()
+            return redirect('blog_detail', pk=blog.pk)
+    else:
+        form = BlogForm(instance=blog)
+    return render(request, 'blogs/blog_form.html', {'form': form})
+
+# delete blog
+@login_required
+def blog_delete(request, pk):
+    blog = get_object_or_404(Blog, pk=pk)
+    
+    if blog.owner != request.user:
+        return HttpResponseForbidden("You are not allowed to delete this blog...")
+    blog.delete()
+    
+    return redirect('blog_list')
