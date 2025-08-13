@@ -14,10 +14,10 @@ def home(request):
 # get blogs
 def blog_list(request):
     query = request.GET.get('q')
-    blogs = Blog.objects.filter(status='public')
+    blogs = Blog.objects.filter(status='public').order_by('-created_at')
     
     if query:
-        blogs = blogs.filter(Q(tags__icontains=query))
+        blogs = blogs.filter(Q(tags__icontains=query)).order_by('-created_at')
         
     return render(request, 'blogs/blog_list.html', {'blogs': blogs, 'query': query})
 
