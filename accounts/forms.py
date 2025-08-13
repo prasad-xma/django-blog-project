@@ -12,9 +12,14 @@ class CustomUserCreationForm(UserCreationForm):
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
-            'password1': forms.PasswordInput(attrs={'class': 'form-control form-control-lg'}),
-            'password2': forms.PasswordInput(attrs={'class': 'form-control form-control-lg'})
+            'password1': forms.PasswordInput(attrs={'class': 'form-control'}),
+            'password2': forms.PasswordInput(attrs={'class': 'form-control'})
         }
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        
+        for fieldname in ['username', 'email', 'first_name', 'last_name', 'password1', 'password2']:
+            self.fields[fieldname].widget.attrs.update({'class': 'form-control'})
         
 
 # login form
