@@ -4,11 +4,11 @@
 {% block title %}{{ blog.title }}{% endblock title %}
 
 {% block content %}
-    <div class="card mb-4">
+    <div class="card border-0 mb-4">
         {% if blog.image %}
             <img src="{{ blog.image.url }}" class="img-thumbnail" style="height: 600px; width: 1000px; object-fit: cover;" alt="{{ blog.title }}">
         {% endif %}
-        <div class="card-body">
+        <div class="card-body" style="width: 1000px;">
             <h2 class="card-title">{{ blog.title }}</h2>
             <p class="text-muted">
                 By {{ blog.owner_name }} | {{ blog.created_at|date:"M d, Y" }}
