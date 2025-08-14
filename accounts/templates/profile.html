@@ -40,7 +40,7 @@
 
             <!-- Buttons -->
             <div class="text-end mt-4">
-                <a href="#" class="btn btn-warning me-2">Reset Password</a>
+                <a href="{% url "password_change" %}" class="btn btn-warning me-2">Change Password</a>
                 <a href="{% url 'edit_profile' request.user.username %}" class="btn btn-primary">Edit Profile</a>
             </div>
         </div>
