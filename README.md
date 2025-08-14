@@ -31,6 +31,7 @@ It includes secure authentication, image uploads, and an intuitive admin interfa
 | Database     | PostgreSQL |
 | Image Handling | Pillow |
 | Auth         | Django's built‑in authentication system |
+|  | Docker Desktop |
 
 ---
 
