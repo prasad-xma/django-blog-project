@@ -2,8 +2,64 @@
 {% load static %}
 
 {% block title %}Profile{% endblock %}
-
+    {% block customlinks %}
+        <link rel="stylesheet" href="{% static 'css/user_profile.css' %}">
+    {% endblock customlinks %}
 {% block content %}
+<section class="vh-100" style="background-color: #f4f5f7;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-6 mb-4 mb-lg-0">
+        <div class="card mb-3" style="border-radius: .5rem;">
+          <div class="row g-0">
+            <div class="col-md-4 gradient-custom text-center text-white"
+              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+              <h5>{{ request.user.first_name }} {{ request.user.last_name }}</h5>
+              <p>{{ request.user.role }}</p>
+              <i class="far fa-edit mb-5"></i>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <h6>My Profile</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-7 mb-3">
+                    <h6>Email</h6>
+                    <p class="text-muted">{{ request.user.email }}</p>
+                  </div>
+                  
+                </div>
+
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Username</h6>
+                    <p class="text-muted">{{ request.user.username }}</p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Most Viewed</h6>
+                    <p class="text-muted">Dolor sit amet</p>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-start">
+                    <div class="text-end mt-4">
+                        <a href="{% url "password_change" %}" class="btn btn-outline-danger" data-mdb-ripple-init data-mdb-ripple-color="dark">Change Password</a>
+                        <a href="{% url 'edit_profile' request.user.username %}" class="btn btn-outline-primary" data-mdb-ripple-init data-mdb-ripple-color="dark">Edit Profile</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% comment %}  
 <div class="container mt-4">
     <div class="card shadow">
         <div class="card-header bg-primary text-white text-center">
@@ -46,4 +102,4 @@
         </div>
     </div>
 </div>
-{% endblock %}
+{% endcomment %}
